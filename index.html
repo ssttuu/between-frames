@@ -5,17 +5,130 @@
     <title>Rebecca</title>
 
 </head>
+<header>
+    <!--<script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>-->
+</header>
 <body>
 
-<video id="video" controls tabindex="0" autobuffer preload>
-    <!--<source type="video/webm; codecs=&quot;vp8, vorbis&quot;" src="http://www.html5rocks.com/tutorials/video/basics/Chrome_ImF.webm"></source>-->
-    <!--<source type="video/ogg; codecs=&quot;theora, vorbis&quot;" src="http://www.html5rocks.com/tutorials/video/basics/Chrome_ImF.ogv"></source>-->
-    <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;"
-    src="http://www.html5rocks.com/tutorials/video/basics/Chrome_ImF.mp4"></source>
-    <p>Sorry, your browser does not support the &lt;video&gt; element.</p>
+<!--<video id="video" controls tabindex="0" autobuffer preload>-->
+    <!--&lt;!&ndash;<source type="video/webm; codecs=&quot;vp8, vorbis&quot;" src="http://www.html5rocks.com/tutorials/video/basics/Chrome_ImF.webm"></source>&ndash;&gt;-->
+    <!--&lt;!&ndash;<source type="video/ogg; codecs=&quot;theora, vorbis&quot;" src="http://www.html5rocks.com/tutorials/video/basics/Chrome_ImF.ogv"></source>&ndash;&gt;-->
+    <!--<source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;"-->
+            <!--src="http://www.html5rocks.com/tutorials/video/basics/Chrome_ImF.mp4"></source>-->
+    <!--<p>Sorry, your browser does not support the &lt;video&gt; element.</p>-->
+<!--</video>-->
+
+<video id="video" width="640" height="480" controls>
+    <source src="/videos/Haylie_2_ffmpeg.mp4" type="video/mp4">
 </video>
+
+<form>
+    <label for="glitch-distortion">Distortion</label>
+    <input type="range" id="glitch-distortion" min="0" max="1" step="0.0001" value="0.1"/>
+    <br/>
+
+    <label for="glitch-vsync">Vertical Sync</label>
+    <input type="range" id="glitch-vsync" min="0" max="1" step="0.0001" value="0.1"/>
+    <br/>
+
+    <label for="glitch-line-sync">Line Sync</label>
+    <input type="range" id="glitch-line-sync" min="0" max="1" step="0.0001" value="0.2"/>
+    <br/>
+
+    <label for="glitch-scanlines">Scanlines</label>
+    <input type="range" id="glitch-scanlines" min="0" max="1" step="0.0001" value="0.3"/>
+    <br/>
+
+    <label for="glitch-bars">Bars</label>
+    <input type="range" id="glitch-bars" min="0" max="1" step="0.0001" value="0.0"/>
+    <br/>
+
+    <label for="glitch-bars-rate">Bars Rate</label>
+    <input type="range" id="glitch-bars-rate" min="0" max="5" step="0.0001" value="1.0"/>
+    <br/>
+
+    <label for="glitch-frame-shape">Frame Shape</label>
+    <input type="range" id="glitch-frame-shape" min="0" max="2" step="0.0001" value="0.27"/>
+    <br/>
+
+    <label for="glitch-frame-limit">Frame Limit</label>
+    <input type="range" id="glitch-frame-limit" min="-1" max="1" step="0.0001" value="0.34"/>
+    <br/>
+
+    <label for="glitch-frame-sharpness">Frame Sharpness</label>
+    <input type="range" id="glitch-frame-sharpness" min="0" max="40" step="0.0001" value="8.4"/>
+    <br/>
+
+    <!--<label for="glitch-frame-color">Frame Color</label>-->
+    <!--<input type="range" id="glitch-frame-color" min="0" max="1" step="0.0001" value="0.0"/>-->
+
+
+</form>
+
+<img id="colorbars"
+     style="display:none;"
+     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAAClCAYAAAA3d5OIAAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH2gIPFxcpA4p/0AAAA2BJREFUeJzt2r9qVHkcxuHvmRyHhCASRcRStErnwnYWWdgljaX1doqCld5CRNhLELtd8AJs1sq5AmFTuMUqoiABXSZIxEgyzngDyWbI4vsrfJ72/HnPwHw4U0w3Go1m1cjz59drdfWfJtt/j8/XrdOPmmxXVfUvrtXk0r9Ntq/8caU2Hm402a6qGg9+qdPT/Sbb909cqyf7t5tsV1UNmi3Dd0hwECQ4CBIcBAkOggQHQYKDIMFBkOAgSHAQJDgIEhwECQ6CBAdBgoMgwUGQ4CBIcBAkOAgSHAQJDoIEB0GCgyDBQZDgIEhwECQ4CBIcBAkOggQHQYKDIMFBkOAgSHAQJDgIEhwECQ6CBAdBgoMgwUGQ4CBIcBAkOAgSHAQJDoIEB0GCgyDBQZDgIEhwECQ4CBIcBAkOggQHQYKDIMFBkOAgSHAQJDgIEhwECQ6CBAdBgoMgwUGQ4CBIcBAkOAgSHAQJDoIEB0GCgyDBQZDgIEhwECQ4CBIcBAkOggQHQYKDIMFBkOAgSHAQJDgIEhwECQ6CBAdBgoMgwUGQ4CBIcBAkOAgSHAQJDoIEB0GCgyDBQZDgIEhwECQ4CBIcBAkOggQHQYKDIMFBkOAgSHAQJDgIEhwECQ6C+rW1duPLyz/W4uK4yfbZ6akabTeZrqqqeycv17Phsybbf/2wVGujJtNVVbVy82IN3r9vsr2+PqzRjSbTVeUNB1GCgyDBQZDgIEhwECQ4CBIcBAkOggQHQYKDIMFBkOAgqO9PPm02PhuOa78/dejxy6sX6szK4cf/j+Xpcm1/Pv6/l7dejevNy3fHvv7DtGpx/9yxr/9P3bQ+94f/OXiws1MnNje/zfYcph8/1uzLlyPP67quBoP53gkLCwtznbe1tVWbDT97VxeuzpqtH+HPB3dq/eefWj/Gge7++luNfn/d+jEONBl8qrcrj1s/xqF2d3drNjv6a9f3fQ2Hw7nuubS0VF3XHXneZDKpvb29ue75LfhJCUGCgyDBQZDgIEhwECQ4CBIcBAkOggQHQYKDIMFBkOAgSHAQJDgIEhwECQ6CBAdBgoMgwUGQ4CBIcBAkOAgSHAQJDoIEB0GCgyDBQZDgIEhwECQ4CBIcBAkOggQHQYKDIMFBkOAgSHAQJDgIEhwECQ6CvgJd+V3gFFLyFgAAAABJRU5ErkJggg==">
+<canvas id="canvas" width="1080" height="720"></canvas>
+
+
 <script src="main.js"></script>
 
+<script src="http://vjs.zencdn.net/5.9.2/video.js"></script>
+<script src="seriously.js"></script>
+<script src="effects/seriously.vignette.js"></script>
+<script src="effects/seriously.tvglitch.js"></script>
+<script>
+
+    // declare our variables
+    var seriously, // the main object that holds the entire composition
+            colorbars, // a wrapper object for our source image
+            source, // a wrapper object for our source image
+            vignette, // a vignette effect
+            tvglitch, // a vignette effect
+            reformat, // a vignette effect
+            target; // a wrapper object for our target canvas
+
+    seriously = new Seriously();
+    colorbars = seriously.source('#colorbars');
+    target = seriously.target('#canvas');
+
+    reformat = seriously.transform('reformat');
+    reformat.width = target.width;
+    reformat.height = target.height;
+    reformat.mode = 'cover';
+
+    tvglitch = seriously.effect('tvglitch');
+    tvglitch.distortion = '#glitch-distortion';
+    tvglitch.distortion = '#glitch-vsync';
+    tvglitch.distortion = '#glitch-line-sync';
+    tvglitch.distortion = '#glitch-scanlines';
+    tvglitch.distortion = '#glitch-bars';
+    tvglitch.distortion = '#glitch-bars-rate';
+    tvglitch.distortion = '#glitch-frame-shape';
+    tvglitch.distortion = '#glitch-frame-limit';
+    tvglitch.distortion = '#glitch-frame-sharpness';
+//    vignette = seriously.effect('vignette');
+//    vignette.amount = document.getElementById('vignette-range');
+
+    // connect any node as the source of the target. we only have one.
+//    vignette.source = colorbars;
+//    target.source = vignette;
+
+    reformat.source = colorbars;
+    tvglitch.source = reformat;
+
+    target.source = tvglitch;
+
+    seriously.go();
+
+    var currentTime = 0;
+    setInterval(function () {
+        currentTime += .01;
+        tvglitch.time = currentTime;
+    }, 50)
+
+
+</script>
 </body>
 
 </html>
